@@ -1,0 +1,2684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>✨ Família Maia - Roteiro Disney Orlando 2026 ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #0066CC;
+            --secondary: #FFD700;
+            --accent: #FF1493;
+            --success: #10b981;
+            --bg-main: #f0f7ff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --shadow: rgba(0, 102, 204, 0.15);
+            --border: #e2e8f0;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --secondary: #fbbf24;
+            --accent: #ec4899;
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --border: #334155;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+            padding-bottom: 100px;
+            -webkit-text-size-adjust: 100%;
+            min-height: 100dvh;
+        }
+
+        /* Header Corrigido */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient);
+            padding: 0.75rem 1rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            max-width: 65%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+            -webkit-appearance: none;
+            touch-action: manipulation;
+        }
+
+        .icon-btn:active {
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Sidebar Corrigida */
+        .sidebar {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            width: 280px;
+            height: calc(100vh - 70px);
+            background: var(--bg-card);
+            box-shadow: 4px 0 20px var(--shadow);
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            overflow-y: auto;
+            padding: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 998;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-item:active {
+            background: var(--bg-main);
+            transform: scale(0.98);
+        }
+
+        .nav-item.active {
+            background: var(--primary);
+            color: white;
+            border-left-color: var(--secondary);
+        }
+
+        /* Search Bar Corrigida */
+        .search-container {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: var(--bg-card);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 997;
+            display: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            font-size: 1rem;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        /* Main Content Corrigido */
+        .main-content {
+            margin-top: 110px;
+            padding: 1rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tabs Corrigidas */
+        .tabs-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            padding: 0.8rem 1.2rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .tab:active {
+            transform: scale(0.95);
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Card Corrigido */
+        .day-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 2px solid var(--border);
+            display: none;
+        }
+
+        .day-card.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .day-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .day-checkbox {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .day-title {
+            flex: 1;
+        }
+
+        .day-title h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .day-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Activity Section */
+        .activity {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-main);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .activity-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .activity-content strong {
+            color: var(--text-primary);
+        }
+
+        .link {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .link:active {
+            color: var(--accent);
+        }
+
+        .location, .price-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+        }
+
+        .location {
+            background: var(--primary);
+            color: white;
+        }
+
+        .price-tag {
+            background: var(--success);
+            color: white;
+        }
+
+        /* Notes Section */
+        .notes-section {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-main);
+            border-radius: 12px;
+            border: 2px dashed var(--border);
+        }
+
+        .notes-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .notes-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.8rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            resize: vertical;
+        }
+
+        .notes-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        /* Modal Corrigido */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:active {
+            background: var(--bg-main);
+            transform: scale(0.95);
+        }
+
+        /* Calculator */
+        .calculator-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .calculator-item input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg-main);
+            color: var(--text-primary);
+        }
+
+        .calculator-item input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .calculator-total {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+            background: var(--accent);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-park {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .badge-shopping {
+            background: #ec4899;
+            color: white;
+        }
+
+        .badge-food {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .badge-nature {
+            background: #10b981;
+            color: white;
+        }
+
+        .badge-travel {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 20, 147, 0.2) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            padding: 1rem;
+            box-shadow: 0 -4px 20px var(--shadow);
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* List Style */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 215, 0, 0.3) 100%);
+            padding: 0.2rem 0;
+        }
+
+        /* Responsive para iPhone */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem;
+                height: 60px;
+            }
+
+            .logo {
+                font-size: 0.9rem;
+                max-width: 60%;
+            }
+
+            .logo span:last-child {
+                display: none;
+            }
+
+            .icon-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .sidebar {
+                top: 60px;
+                height: calc(100vh - 60px);
+                width: 85vw;
+            }
+
+            .sidebar-overlay {
+                top: 60px;
+            }
+
+            .main-content {
+                margin-top: 90px;
+                padding: 0.8rem;
+                margin-bottom: 80px;
+            }
+
+            .day-card {
+                padding: 1rem;
+            }
+
+            .day-title h2 {
+                font-size: 1.1rem;
+            }
+
+            .modal-content {
+                padding: 1.2rem;
+                max-height: 85vh;
+            }
+
+            .search-container {
+                top: 60px;
+            }
+
+            .tabs-container {
+                padding: 0.8rem 0;
+            }
+
+            .tab {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .activity {
+                padding: 0.8rem;
+            }
+
+            .activity-header {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 50%;
+            }
+
+            .header-controls {
+                gap: 0.3rem;
+            }
+
+            .icon-btn {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-item {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+
+            .day-title h2 {
+                font-size: 1rem;
+            }
+
+            .activity-content {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Prevenir zoom em inputs no iOS */
+        @media screen and (max-width: 768px) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <span>🏰🐭🎠🎢🎉</span>
+            <span>Família Maia - Férias Mágicas 2026 🐭🎠🎢🏰🎉</span>
+        </div>
+        <div class="header-controls">
+            <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+            <button class="icon-btn" id="searchBtn" aria-label="Buscar">🔍</button>
+            <button class="icon-btn" id="calcBtn" aria-label="Calculadora">💰</button>
+            <button class="icon-btn" id="themeBtn" aria-label="Tema">🌙</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <h3 style="margin-bottom: 1rem; color: var(--primary);">📅 Navegação Rápida</h3>
+        <div class="nav-item" data-day="preparativos">🎯 Preparativos</div>
+        <div class="nav-item" data-day="dia1">📅 29/03 - Chegada</div>
+        <div class="nav-item" data-day="dia2">🛍️ 30/03 - Outlets Leste</div>
+        <div class="nav-item" data-day="dia3">🛍️ 31/03 - Outlets Norte</div>
+        <div class="nav-item" data-day="dia4">🏖️ 01/04 - Cocoa Beach</div>
+        <div class="nav-item" data-day="dia5">🏰 02/04 - Magic Kingdom</div>
+        <div class="nav-item" data-day="dia6">🛒 03/04 - Mercados</div>
+        <div class="nav-item" data-day="dia7">🦁 04/04 - Animal Kingdom</div>
+        <div class="nav-item" data-day="dia8">🌳 05/04 - Disney Springs</div>
+        <div class="nav-item" data-day="dia9">🎬 06/04 - Hollywood Studios</div>
+        <div class="nav-item" data-day="dia10">🛒 07/04 - Lake Buena Vista</div>
+        <div class="nav-item" data-day="dia11">🌍 08/04 - EPCOT</div>
+        <div class="nav-item" data-day="dia12">🏬 09/04 - Big Box Stores</div>
+        <div class="nav-item" data-day="dia13">🎢 10/04 - EPIC UNIVERSE</div>
+        <div class="nav-item" data-day="dia14">🚀 11/04 - Kennedy Space</div>
+        <div class="nav-item" data-day="dia15">🛍️ 12/04 - Compras</div>
+        <div class="nav-item" data-day="dia16">✨ 13/04 - Dia Livre</div>
+        <div class="nav-item" data-day="dia17">🪄 14/04 - Universal Parks</div>
+        <div class="nav-item" data-day="dia18">🎁 15/04 - Últimas Compras</div>
+        <div class="nav-item" data-day="dia19">✈️ 16/04 - Retorno</div>
+        <div class="nav-item" data-day="segredos">🤫 Segredos Locais</div>
+    </nav>
+
+    <!-- Search -->
+    <div class="search-container" id="searchContainer">
+        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Buscar atividades, lugares, restaurantes..." autocomplete="off">
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tabs -->
+        <div class="tabs-container" id="tabsContainer">
+            <div class="tab active" data-day="preparativos">🎯 Preparativos</div>
+            <div class="tab" data-day="dia1">29/03</div>
+            <div class="tab" data-day="dia2">30/03</div>
+            <div class="tab" data-day="dia3">31/03</div>
+            <div class="tab" data-day="dia4">01/04</div>
+            <div class="tab" data-day="dia5">02/04</div>
+            <div class="tab" data-day="dia6">03/04</div>
+            <div class="tab" data-day="dia7">04/04</div>
+            <div class="tab" data-day="dia8">05/04</div>
+            <div class="tab" data-day="dia9">06/04</div>
+            <div class="tab" data-day="dia10">07/04</div>
+            <div class="tab" data-day="dia11">08/04</div>
+            <div class="tab" data-day="dia12">09/04</div>
+            <div class="tab" data-day="dia13">10/04</div>
+            <div class="tab" data-day="dia14">11/04</div>
+            <div class="tab" data-day="dia15">12/04</div>
+            <div class="tab" data-day="dia16">13/04</div>
+            <div class="tab" data-day="dia17">14/04</div>
+            <div class="tab" data-day="dia18">15/04</div>
+            <div class="tab" data-day="dia19">16/04</div>
+            <div class="tab" data-day="segredos">🤫 Locais</div>
+        </div>
+        <!-- Day Cards -->
+        
+        <!-- Preparativos -->
+        <div class="day-card active" data-day="preparativos" data-search="preparativos ingressos disney universal epic apps transporte">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="preparativos">
+                <div class="day-title">
+                    <h2>🎯 ANTES DA VIAGEM: PREPARATIVOS ESSENCIAIS</h2>
+                    <p class="day-subtitle">Organize tudo antes de partir</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">⚠️ Leia com Atenção</div>
+                <p>Compre ingressos e faça reservas com antecedência. EPIC UNIVERSE terá demanda altíssima!</p>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎫</span>
+                    <span>Ingressos para os Parques</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Sites Oficiais (Preço Cheio, mas com garantia total):</strong>
+                    <ul>
+                        <li><strong>Walt Disney World:</strong> <a href="https://disneyworld.disney.go.com" target="_blank" class="link">disneyworld.disney.go.com</a> - Considere os tickets de multi-dias.</li>
+                        <li><strong>Universal Orlando:</strong> <a href="https://universalorlando.com" target="_blank" class="link">universalorlando.com</a> - Para o dia 14/04, o Park-to-Park Ticket é <span class="highlight">obrigatório</span> para usar o Hogwarts Express.</li>
+                    </ul>
+                    <br>
+                    <strong>Site de Confiança para Possíveis Economias:</strong>
+                    <ul>
+                        <li><strong>Undercover Tourist:</strong> <a href="https://www.undercovertourist.com/orlando/" target="_blank" class="link">www.undercovertourist.com/orlando</a> - Revendedor autorizado, preços ligeiramente menores, sem taxas ocultas.</li>
+                    </ul>
+                    <br>
+                    <div class="info-box">
+                        <strong>🎢 EPIC UNIVERSE:</strong> Este novo parque da Universal pode ter demanda altíssima. Monitore o site oficial e o Undercover Tourist para a abertura da venda de ingressos, que deve acontecer com muita antecedência.
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚗</span>
+                    <span>Transporte</span>
+                </div>
+                <div class="activity-content">
+                    <p>Como o roteiro é intenso e inclui saídas da área turística, alugar um carro é <strong>quase</strong> obrigatório. Reserve com antecedência em:</p>
+                    <ul>
+                        <li><a href="https://www.rentalcars.com" target="_blank" class="link">Rentalcars.com</a> (comparador)</li>
+                        <li>Ou diretamente nas locadoras no aeroporto</li>
+                    </ul>
+                
+                    <p><strong>Dirigir na Flórida com CNH estrangeira</strong></p>
+                    <p>De acordo com o órgão de trânsito da Flórida (Florida Department of Highway Safety and Motor Vehicles), visitantes que desejam dirigir no estado devem portar, em todos os momentos, uma carteira de motorista válida emitida em seu nome pelo país de residência.</p>
+                    <p>Se você pretende alugar um carro enquanto visita a Flórida, é recomendável verificar previamente com a locadora quais são as exigências específicas. No entanto, a orientação geral é que as locadoras continuam aceitando uma carteira de motorista válida emitida por qualquer estado norte-americano, território dos EUA ou país estrangeiro.</p>
+                    <p>Mais informações oficiais em: 
+                        <a href="https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/" target="_blank" class="link">
+                            FLHSMV – Visiting Florida FAQs
+                        </a>
+                    </p>
+                </div>
+            </div>
+                
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>📱</span>
+                    <span>Apps Indispensáveis</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>
+                            <strong>My Disney Experience:</strong>
+                            Para Disney (FastPass+, filas, dining) –
+                            <a href="https://apps.apple.com/br/app/my-disney-experience/id547436543" target="_blank" class="link">
+                                baixar na App Store
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Universal Orlando Resort:</strong>
+                            Para Universal (wait times, mapa) –
+                            <a href="https://apps.apple.com/br/app/universal-orlando-resort/id878217080" target="_blank" class="link">
+                                baixar na App Store
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Google Maps:</strong>
+                            Salve todos os endereços deste roteiro –
+                            <a href="https://apps.apple.com/br/app/google-maps/id585027354" target="_blank" class="link">
+                                baixar na App Store
+                            </a>
+                        </li>
+                        <li>
+                            <strong>GasBuddy:</strong>
+                            Para encontrar o combustível mais barato –
+                            <a href="https://apps.apple.com/us/app/gasbuddy-find-pay-for-gas/id406719683" target="_blank" class="link">
+                                baixar na App Store
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="preparativos" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 1 -->
+        <div class="day-card" data-day="dia1" data-search="chegada aeroporto mco hotel check-in publix wawa miller jantar">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia1">
+                <div class="day-title">
+                    <h2>📅 Domingo, 29/03/2026 <span class="badge badge-travel">Chegada</span></h2>
+                    <p class="day-subtitle">Chegada e Ambientação</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✈️</span>
+                    <span>16h20 - Chegada ao Aeroporto</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Chegada ao Aeroporto Internacional de Orlando (MCO)</strong>
+                    <p>Procedimentos de imigração, bagagem e retirada do carro alugado.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏨</span>
+                    <span>18h30 - Check-in no Hotel</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Sugestão de área para hospedagem:</strong>
+                    <ul>
+                        <li><strong>Kissimmee:</strong> Mais econômica</li>
+                        <li><strong>Lake Buena Vista:</strong> Mais conveniente para Disney</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>20h00 - Jantar e Abastecimento</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Jantar de chegada e abastecimento inicial:</strong>
+                    <ul>
+                        <li><strong>Publix Super Market:</strong> Compras para café da manhã e lanches</li>
+                        <li><strong>WaWa:</strong> Conveniência com sanduíches frescos e baratos</li>
+                        <li><strong>Miller's Ale House:</strong> Pratos generosos, preços médios
+                            <br><span class="location">📍 5575 S Semoran Blvd</span>
+                            <span class="price-tag">💵 $15-25</span>
+                            <br><a href="https://www.millersalehouse.com" target="_blank" class="link">www.millersalehouse.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia1" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 2 -->
+        <div class="day-card" data-day="dia2" data-search="outlet internacional vineland compras nike adidas disney springs earl sandwich bj restaurant">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia2">
+                <div class="day-title">
+                    <h2>🛍️ Segunda, 30/03 <span class="badge badge-shopping">Compras</span></h2>
+                    <p class="day-subtitle">Compras (Outlet Leste) e Exploração Inicial</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛍️</span>
+                    <span>9h00 - 13h00 - Orlando International Premium Outlets</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 4951 International Dr, Orlando, FL 32819</span>
+                    <p><strong>🕒 Horário:</strong> Seg-Sáb: 11h-21h; Dom: 11h-19h</p>
+                    <p><strong>Site:</strong> <a href="https://www.premiumoutlets.com/outlet/orlando-international" target="_blank" class="link">www.premiumoutlets.com/outlet/orlando-international</a></p>
+                    <div class="info-box">
+                        <strong>💡 IMPERDÍVEL:</strong> Baixe o app "Simon Malls" para ver mapas e cupons digitais. Visite o Customer Service para obter um livreto de cupons adicionais.
+                    </div>
+                    <strong>Lojas Chave:</strong> Nike, Adidas, Under Armour, Columbia, Ralph Lauren, Luxury (Gucci, Prada, etc.)
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍕</span>
+                    <span>13h00 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <strong>BJ's Restaurant & Brewhouse:</strong> Porções grandes, shareable
+                    <br><span class="location">📍 9101 International Dr, Orlando</span>
+                    <span class="price-tag">💵 $15-22</span>
+                    <br><a href="https://www.bjsrestaurants.com" target="_blank" class="link">www.bjsrestaurants.com</a>
+                    <p>Pizzas e Pizookies famosos.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏰</span>
+                    <span>15h00 - 18h00 - Disney Springs</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 1486 Buena Vista Dr, Lake Buena Vista, FL 32830</span>
+                    <p><strong>🕒 Horário:</strong> Geralmente 10h-23h, lojas até 00h</p>
+                    <p><strong>✨ Estacionamento gratuito.</strong> Explore a World of Disney, a LEGO Store e desfrute da atmosfera.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🥪</span>
+                    <span>19h30 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Earl of Sandwich</strong> no Disney Springs (clássico low-cost e saboroso)
+                    <br><span class="location">📍 Disney Springs</span>
+                    <span class="price-tag">💵 A partir de $7</span>
+                    <br><a href="https://www.earlofsandwichusa.com" target="_blank" class="link">www.earlofsandwichusa.com</a>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia2" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 3 -->
+        <div class="day-card" data-day="dia3" data-search="outlet vineland compras saks neiman kate spade lake eola park pig floyd cici pizza four rivers">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia3">
+                <div class="day-title">
+                    <h2>🛍️ Terça, 31/03 <span class="badge badge-shopping">Compras</span> <span class="badge badge-nature">Natureza</span></h2>
+                    <p class="day-subtitle">Compras (Outlet Norte) e Natureza</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛍️</span>
+                    <span>9h30 - 13h30 - Orlando Vineland Premium Outlets</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 8200 Vineland Ave, Orlando, FL 32821</span>
+                    <p><strong>🕒 Horário:</strong> Seg-Sáb: 10h-21h; Dom: 10h-19h</p>
+                    <p><strong>Site:</strong> <a href="https://www.premiumoutlets.com/outlet/orlando-vineland" target="_blank" class="link">www.premiumoutlets.com/outlet/orlando-vineland</a></p>
+                    <p>Também do grupo Simon (use o mesmo app). Tem uma seleção ligeiramente diferente do International.</p>
+                    <strong>Lojas Destaque:</strong> Saks OFF 5th, Neiman Marcus Last Call, Kate Spade, Tory Burch
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍖</span>
+                    <span>14h00 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Opções:</strong>
+                    <ul>
+                        <li><strong>Cici's Pizza:</strong> Buffet de pizza all-you-can-eat super barato</li>
+                        <li><strong>Four Rivers Smokehouse:</strong> Espetacular churrasco texano
+                            <br><span class="location">📍 8745 W Irlo Bronson Memorial Hwy, Kissimmee</span>
+                            <span class="price-tag">💵 $12-18</span>
+                            <br><a href="https://www.4rsmokehouse.com" target="_blank" class="link">www.4rsmokehouse.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌳</span>
+                    <span>16h00 - Pôr do Sol - Lake Eola Park</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 512 E Washington St, Orlando, FL 32801</span>
+                    <p><strong>🕒 Horário:</strong> 6h-24h</p>
+                    <p>Passeio de pedal boat (cisne) no lago (<strong>$15/30min</strong>), ótimo para fotos.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍴</span>
+                    <span>19h30 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Pig Floyd's Urban Barbakoa</strong> - Fusão inovadora de churrasco (bairro cool de Mills 50)
+                    <br><span class="location">📍 1326 N Mills Ave, Orlando, FL 32803</span>
+                    <span class="price-tag">💵 $13-18</span>
+                    <br><a href="https://www.pigfloyds.com" target="_blank" class="link">www.pigfloyds.com</a>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia3" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 4 -->
+        <div class="day-card" data-day="dia4" data-search="cocoa beach canaveral ron jon tiny turtle rusty grills seafood praia atlantico">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia4">
+                <div class="day-title">
+                    <h2>🏖️ Quarta, 01/04 <span class="badge badge-nature">Praia</span> <span class="badge badge-travel">Viagem</span></h2>
+                    <p class="day-subtitle">Viagem de Dia: Cocoa Beach e Canaveral</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚗</span>
+                    <span>9h00 - Viagem para a Costa Atlântica</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>~1h de carro até Cocoa Beach</strong></p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏖️</span>
+                    <span>10h30 - 13h00 - Cocoa Beach</span>
+                </div>
+                <div class="activity-content">
+                    <p>Caminhada na praia, visita ao <strong>Ron Jon Surf Shop</strong> (aberto 24h!)</p>
+                    <span class="location">📍 4151 N Atlantic Ave, Cocoa Beach</span>
+                    <br><a href="https://www.ronjons.com" target="_blank" class="link">www.ronjons.com</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🐢</span>
+                    <span>13h00 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Opções:</strong>
+                    <ul>
+                        <li><strong>The Tiny Turtle:</strong> Caribenho, saudável
+                            <br><span class="location">📍 321 N Atlantic Ave, Cocoa Beach</span>
+                            <span class="price-tag">💵 $14-20</span>
+                        </li>
+                        <li><strong>Rusty's Seafood & Oyster Bar:</strong> Frutos do mar clássico no porto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>⚓</span>
+                    <span>15h00 - Tarde em Port Canaveral</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Jetty Park:</strong> Pode ver navios de cruzeiro enormes
+                    <br><span class="location">📍 400 Jetty Park Rd, Cape Canaveral</span>
+                    <p>Taxa de estacionamento ~$15</p>
+                    <p><strong>Ou visite:</strong> Exploration Tower para vistas</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🦞</span>
+                    <span>17h30 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Grills Seafood Deck & Tiki Bar</strong> - Vista para os barcos no porto
+                    <br><span class="location">📍 505 Glen Cheek Dr, Cape Canaveral</span>
+                    <span class="price-tag">💵 $18-28</span>
+                    <br><a href="https://www.grillsseafood.com" target="_blank" class="link">www.grillsseafood.com</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚗</span>
+                    <span>Após jantar - Retorno a Orlando</span>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia4" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 5 - AGORA MAGIC KINGDOM (02/04) -->
+        <div class="day-card" data-day="dia5" data-search="magic kingdom disney parque seven dwarfs space mountain peter pan genie happily ever after sleepy hollow">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia5">
+                <div class="day-title">
+                    <h2>🏰 Quinta, 02/04 <span class="badge badge-park">Parque</span></h2>
+                    <p class="day-subtitle">PARQUE: Magic Kingdom</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">⭐ Regra de Ouro</div>
+                <p>Chegue <strong>ANTES</strong> do horário de abertura oficial (geralmente 8h ou 9h).</p>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎢</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Use o app para reservar Genie+ (pago) logo à meia-noite do dia.</strong></p>
+                    <strong>Priorize:</strong>
+                    <ul>
+                        <li>Seven Dwarfs Mine Train</li>
+                        <li>Space Mountain</li>
+                        <li>Peter Pan's Flight</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍔</span>
+                    <span>Almoço Low-Cost</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Columbia Harbour House</strong> (Liberty Square) ou <strong>Pecos Bill Tall Tale Inn</strong> (Frontierland)</p>
+                    <span class="price-tag">💵 $12-16</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🧇</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Sleepy Hollow</strong> (waffle doce ou salgado) ou saia do parque e vá ao <strong>The Polite Pig</strong> em Disney Springs.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✨</span>
+                    <span>Não Perca</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>O desfile à tarde</li>
+                        <li>O espetáculo noturno <strong>Happily Ever After</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia5" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 6 - COMPRAS (03/04) -->
+        <div class="day-card" data-day="dia6" data-search="orlando marketplace belz disney character warehouse rack room market south valhalla ross marshall tj maxx hawkers">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia6">
+                <div class="day-title">
+                    <h2>🛒 Sexta, 03/04 <span class="badge badge-shopping">Compras</span></h2>
+                    <p class="day-subtitle">Compras (Mercados e Liquidações)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏬</span>
+                    <span>9h00 - 12h00 - Orlando Outlet Marketplace</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 5401 W Oak Ridge Rd, Orlando, FL 32819</span>
+                    <p><strong>🕒 Horário:</strong> Seg-Sáb: 10h-21h; Dom: 10h-19h</p>
+                    <div class="info-box">
+                        <strong>🎯 Conhecido por:</strong> Disney Character Warehouse (itens com até 80% off de parques e Disney Springs) e Rack Room Shoes. <strong class="highlight">Chegue cedo no Character Warehouse!</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🥗</span>
+                    <span>12h30 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Market on South / Valhalla Bakery</strong> - 100% vegano e delicioso
+                    <br><span class="location">📍 2603 E South St, Orlando, FL 32803</span>
+                    <span class="price-tag">💵 $12-16</span>
+                    <br><a href="https://www.marketonSouth.com" target="_blank" class="link">www.marketonSouth.com</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>💸</span>
+                    <span>14h00 - 17h00 - Liquidações "Off-Price"</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Lojas:</strong> Ross Dress for Less, Marshall's, TJ Maxx, Burlington</p>
+                    <p>Espalhadas pela cidade. Sugiro o complexo na <strong>Sand Lake Road</strong> perto do I-4.</p>
+                    <span class="location">📍 Exemplo Marshall's: 7600 Dr Phillips Blvd, Orlando</span>
+                    <p>Você encontra de tudo: roupas, utensílios domésticos, com descontos profundos.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍜</span>
+                    <span>19h00 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Hawkers Asian Street Fare</strong> - Pequenas porções para compartilhar
+                    <br><span class="location">📍 1103 Mills Ave N, Orlando</span>
+                    <span class="price-tag">💵 $6-14 cada</span>
+                    <br><a href="https://www.hawkersorlando.com" target="_blank" class="link">www.hawkersorlando.com</a>
+                    <p>Sabores asiáticos incríveis!</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia6" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 7 - AGORA ANIMAL KINGDOM (04/04) -->
+        <div class="day-card" data-day="dia7" data-search="animal kingdom pandora avatar flight passage navi river kilimanjaro safari satuli canteen flame tree lion king rivers light">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia7">
+                <div class="day-title">
+                    <h2>🦁 Sábado, 04/04 <span class="badge badge-park">Parque</span></h2>
+                    <p class="day-subtitle">PARQUE: Animal Kingdom</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌳</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Foco em Pandora - The World of Avatar</strong></p>
+                    <p>Vá direto para <strong>Avatar Flight of Passage</strong> na abertura (ou use Genie+).</p>
+                    <p><strong>Na'vi River Journey</strong> depois.</p>
+                    <p>Depois, faça <strong>Kilimanjaro Safaris</strong> no final da tarde (animais mais ativos).</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🥗</span>
+                    <span>Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Satu'li Canteen</strong> (em Pandora, opções saudáveis e únicas) ou <strong>Flame Tree Barbecue</strong> (ótimo churrasco)</p>
+                    <span class="price-tag">💵 $12-16</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍹</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Nomad Lounge</strong> (petiscos e drinks sofisticados) ou fora do parque no <strong>Bonefish Grill</strong> (frutos do mar)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✨</span>
+                    <span>Não Perca</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li><strong>Festival of the Lion King</strong> (show)</li>
+                        <li><strong>Rivers of Light</strong> (se estiver ocorrendo)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia7" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 8 -->
+        <div class="day-card" data-day="dia8" data-search="disney springs curiosidades atrações restaurantes entretenimento dicas">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia8">
+                <div class="day-title">
+                    <h2>🌆 Domingo, 05/04 <span class="badge badge-shopping">Disney Springs Completo</span></h2>
+                    <p class="day-subtitle">Centro de compras, restaurantes e entretenimento (entrada grátis)</p>
+                </div>
+            </div>
+        
+            <div class="activity">
+                <div class="activity-header">
+                    <span>📖</span>
+                    <span>Visão geral e curiosidades</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>Dividido em 4 áreas: Marketplace, The Landing, Town Center e West Side.</li>
+                        <li><strong>World of Disney:</strong> Maior loja Disney do mundo.</li>
+                        <li><strong>LEGO Store:</strong> Esculturas gigantes + brincar grátis.</li>
+                        <li>Balão Aerophile: 120m de altura com vista do complexo Disney.</li>
+                        <li>Sem ingresso de parque; ideal para dia de chegada ou noite pós-parque.</li>
+                    </ul>
+                    <br><a href="https://www.disneyworld.disney.go.com/destinations/springs/" target="_blank" class="link">Site oficial Disney Springs</a>
+                </div>
+            </div>
+        
+            <div class="activity">
+                <div class="activity-header">
+                    <span>⭐</span>
+                    <span>O que não pode faltar</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li><strong>World of Disney</strong> (Marketplace): Lembranças e itens de casa Disney.</li>
+                        <li><strong>LEGO Store:</strong> Fotos e montagem de peças.</li>
+                        <li><strong>Coca-Cola Store + Rooftop Bar:</strong> Degustação de sabores mundiais.</li>
+                        <li><strong>Aerophile Balloon Flight:</strong> Vista panorâmica ($25-30).</li>
+                        <li><strong>Waterside Stage:</strong> Shows de rua e bandas ao vivo.</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>Restaurantes e lanchinhos imperdíveis</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Principais (reserve via My Disney Experience):</strong>
+                    <ul>
+                        <li><strong>The BOATHOUSE</strong> (The Landing): Frutos do mar + Amphicar ($30-50)
+                            <br><a href="https://www.theboathouseorlando.com" target="_blank" class="link">theboathouseorlando.com</a>
+                        </li>
+                        <li><strong>Chef Art Smith’s Homecomin’</strong> (Town Center): Sulista ($25-40)</li>
+                        <li><strong>Morimoto Asia</strong> (The Landing): Asiático elegante.</li>
+                        <li><strong>Wine Bar George:</strong> Petiscos + vinhos.</li>
+                        <li><strong>Raglan Road Irish Pub:</strong> Música ao vivo.</li>
+                        <li><strong>Gideon’s Bakehouse:</strong> Cookies gigantes (sobremesa).</li>
+                    </ul>
+                    <strong>Rápidos:</strong> D-Luxe Burger, Blaze Pizza, The Polite Pig.
+                </div>
+            </div>
+        
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎪</span>
+                    <span>O que fazer além de comer e comprar</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li><strong>Splitsville Luxury Lanes</strong> (West Side): Bowling + bar.</li>
+                        <li><strong>AMC Dine-In Theatres:</strong> Cinema com comida na poltrona.</li>
+                        <li><strong>Cirque du Soleil – Drawn to Life:</strong> Espetáculo (~$100+).</li>
+                        <li><strong>Amphicar no BOATHOUSE:</strong> Carro anfíbio no lago.</li>
+                        <li>Carrossel e trenzinho (Marketplace) para crianças.</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="activity">
+                <div class="activity-header">
+                    <span>💡</span>
+                    <span>Dicas práticas para o roteiro</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li><strong>Melhor horário:</strong> Fim de tarde/noite (luzes acesas).</li>
+                        <li><strong>Tempo:</strong> 1 noite ou meio dia + noite.</li>
+                        <li><strong>Roteiro básico:</strong> Town Center + lago → Jantar → Marketplace (World/LEGO) → Sobremesa.</li>
+                        <li>Estacionamento grátis; use Google Maps para navegar áreas.</li>
+                        <li>Reservas essenciais: Boathouse, Homecomin’, Morimoto, Raglan Road, T-Rex.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia8" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 9 - HOLLYWOOD STUDIOS (06/04) -->
+        <div class="day-card" data-day="dia9" data-search="hollywood studios star wars galaxy edge rise resistance slinky dog millennium falcon fantasmic docking bay abc commissary">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia9">
+                <div class="day-title">
+                    <h2>🎬 Segunda, 06/04 <span class="badge badge-park">Parque</span></h2>
+                    <p class="day-subtitle">PARQUE: Hollywood Studios</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>⭐</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Foco total em Star Wars: Galaxy's Edge</strong></p>
+                    <div class="info-box">
+                        <strong>🚨 Reserve (pago e competitivo) para Rise of the Resistance às 7h pelo app.</strong>
+                    </div>
+                    <p>Para <strong>Slinky Dog Dash</strong> e <strong>Millennium Falcon: Smugglers Run</strong>, use Genie+.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍔</span>
+                    <span>Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Docking Bay 7 Food and Cargo</strong> (em Batuu) ou <strong>ABC Commissary</strong> (mais barato)</p>
+                    <span class="price-tag">💵 $13-17</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>50's Prime Time Café</strong> (experiência temática) ou saia para o <strong>The Polite Pig</strong></p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✨</span>
+                    <span>Não Perca</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Fantasmic!</strong> (espetáculo noturno)</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia9" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 10 -->
+        <div class="day-card" data-day="dia10" data-search="lake buena vista factory stores disney character warehouse oshkosh carter nike leu gardens black angus swine sons king bao">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia10">
+                <div class="day-title">
+                    <h2>🛍️ Terça, 07/04 <span class="badge badge-shopping">Compras</span> <span class="badge badge-nature">Natureza</span></h2>
+                    <p class="day-subtitle">Compras (Lojas de Departamento) e Natureza 2</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛍️</span>
+                    <span>10h00 - 13h00 - Lake Buena Vista Factory Stores</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 15591 S Apopka Vineland Rd, Orlando, FL 32821</span>
+                    <p><strong>🕒 Horário:</strong> Geralmente 10h-21h</p>
+                    <p>Menor, mas com ótimas lojas como <strong>OshKosh, Carter's, Nike</strong>, e outro <strong>Disney Character Warehouse</strong>.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🥩</span>
+                    <span>13h30 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Opções:</strong>
+                    <ul>
+                        <li><strong>Black Angus Steakhouse:</strong> Prato feito no almoço custo-benefício</li>
+                        <li><strong>Swine & Sons:</strong> Sanduíches artesanais fabulosos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌺</span>
+                    <span>15h00 - 17h30 - Harry P. Leu Gardens</span>
+                </div>
+                <div class="activity-content">
+                    <p>Jardins botânicos lindos para relaxar</p>
+                    <span class="location">📍 1920 N Forest Ave, Orlando, FL 32803</span>
+                    <span class="price-tag">💵 $15</span>
+                    <br><a href="https://www.leugardens.org" target="_blank" class="link">www.leugardens.org</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🥟</span>
+                    <span>19h00 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>King Bao</strong> - Restaurante de bao buns, único e barato
+                    <br><span class="location">📍 710 N Mills Ave, Orlando</span>
+                    <span class="price-tag">💵 $4-7 por bao</span>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia10" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 11 - AGORA EPCOT (08/04) -->
+        <div class="day-card" data-day="dia11" data-search="epcot test track soarin guardians galaxy cosmic rewind world showcase festival harmonious les halles cantina san angel">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia11">
+                <div class="day-title">
+                    <h2>🌍 Quarta, 08/04 <span class="badge badge-park">Parque</span></h2>
+                    <p class="day-subtitle">PARQUE: EPCOT</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎢</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p>O parque é grande. <strong>Divida:</strong></p>
+                    <ul>
+                        <li><strong>Manhã:</strong> Atrações do Future World
+                            <ul>
+                                <li>Test Track</li>
+                                <li>Soarin'</li>
+                                <li><strong>Guardians of the Galaxy: Cosmic Rewind</strong> - requer Virtual Queue ou ingresso pago individual</li>
+                            </ul>
+                        </li>
+                        <li><strong>Tarde/Noite:</strong> Explorar os Países do World Showcase</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Food Booths do Festival</strong> (se houver um festival, como o Flower & Garden) - perfeito para comer "petiscando" pelo mundo</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌎</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p>Jante em um dos pavilhões. <strong>Reservas recomendadas.</strong></p>
+                    <strong>Low-cost:</strong>
+                    <ul>
+                        <li><strong>Les Halles Boulangerie-Patisserie</strong> (França)</li>
+                        <li><strong>La Cantina de San Angel</strong> (México)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✨</span>
+                    <span>Não Perca</span>
+                </div>
+                <div class="activity-content">
+                    <p>O show noturno <strong>Harmonious</strong> (ou seu substituto em 2026)</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia11" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 12 -->
+        <div class="day-card" data-day="dia12" data-search="target walmart florida mall macy jcpenney big box stores cheddar scratch kitchen cat jack">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia12">
+                <div class="day-title">
+                    <h2>🏬 Quinta, 09/04 <span class="badge badge-shopping">Mega Stores</span></h2>
+                    <p class="day-subtitle">Compras (Mega Stores Americanas)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎯</span>
+                    <span>9h00 - 12h00 - Target</span>
+                </div>
+                <div class="activity-content">
+                    <p>Para tudo: snacks, souvenirs genéricos, remédios, roupas casuais da marca Cat & Jack, etc.</p>
+                    <span class="location">📍 Ex: 4855 S Kirkman Rd, Orlando</span>
+                    <br><a href="https://www.target.com" target="_blank" class="link">www.target.com</a>
+                    <div class="info-box">
+                        <strong>💡 Dica:</strong> Use o app para ver preços e cupons ("Circle Offers")
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍔</span>
+                    <span>12h30 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p>No food court de um shopping como <strong>The Florida Mall</strong> (fica próximo)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛒</span>
+                    <span>14h00 - 17h00 - Walmart & Florida Mall</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Walmart Supercenter:</strong> Preços ainda mais baixos em itens básicos, variedade enorme
+                    <br><span class="location">📍 Ex: 8100 S John Young Pkwy, Orlando</span>
+                    <br><br>
+                    <strong>The Florida Mall:</strong> Lojas de departamento tradicionais como Macy's e JC Penney (sempre têm promoções)
+                    <br><span class="location">📍 8001 S Orange Blossom Trl, Orlando</span>
+                    <br><a href="https://www.simon.com/mall/the-florida-mall" target="_blank" class="link">www.simon.com/mall/the-florida-mall</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>18h30 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Cheddar's Scratch Kitchen</strong> - Comida caseira americana, porções gigantes
+                    <br><span class="location">📍 Ex: 7639 W Sand Lake Rd, Orlando</span>
+                    <span class="price-tag">💵 $13-20</span>
+                    <br><a href="https://www.cheddars.com" target="_blank" class="link">www.cheddars.com</a>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia12" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 13 - AGORA EPIC UNIVERSE (10/04) -->
+        <div class="day-card" data-day="dia13" data-search="epic universe universal novo parque dragon nintendo harry potter ministry magic monsters inauguração">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia13">
+                <div class="day-title">
+                    <h2>🎢 Sexta, 10/04 <span class="badge badge-park">Parque Novo!</span></h2>
+                    <p class="day-subtitle">PARQUE: EPIC UNIVERSE (Universal)</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">🔥 DIA HISTÓRICO!</div>
+                <p>Será a inauguração (ou quase) do novo complexo da Universal. <strong>Espere multidões épicas.</strong></p>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎯</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Pesquise muito antes. Compre ingressos no segundo em que forem liberados.</strong></p>
+                    <p>Provavelmente, haverá um sistema de reserva de atrações (como o Virtual Queue). Esteja no hotel da Universal mais cedo que o normal.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌍</span>
+                    <span>Foco nos Novos Mundos</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>How to Train Your Dragon</li>
+                        <li>Super Nintendo World</li>
+                        <li>The Wizarding World of Harry Potter - Ministry of Magic</li>
+                        <li>Universal Monsters</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>Alimentação</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Leve lanches.</strong> Os food courts dentro serão lotados. Tente horários alternativos (almoço às 11h ou 15h).</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌙</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p>Provavelmente dentro do parque ou em um restaurante dos hotéis da Universal (como o <strong>Hard Rock Hotel</strong>) para fugir do caos.</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia13" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 14 -->
+        <div class="day-card" data-day="dia14" data-search="kennedy space center atlantis nasa bus tour astronaut hall fame dixie crossroads titusville">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia14">
+                <div class="day-title">
+                    <h2>🚀 Sábado, 11/04 <span class="badge badge-travel">Viagem</span></h2>
+                    <p class="day-subtitle">Viagem de Dia: Kennedy Space Center</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚗</span>
+                    <span>8h00 - Saída para Kennedy Space Center</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>~1h15 de viagem</strong></p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚀</span>
+                    <span>9h30 - 17h00 - Kennedy Space Center Visitor Complex</span>
+                </div>
+                <div class="activity-content">
+                    <div class="info-box">
+                        <strong>💡 Dica suprema:</strong> Compre ingresso online com antecedência. Chegue cedo.
+                    </div>
+                    <strong>Priorize:</strong>
+                    <ul>
+                        <li><strong>Bus Tour</strong> (incluído) para ver os complexos de lançamento</li>
+                        <li><strong>Space Shuttle Atlantis</strong> (exibição impressionante)</li>
+                        <li><strong>Heroes and Legends</strong> com o U.S. Astronaut Hall of Fame</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍔</span>
+                    <span>Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p>No complexo (várias opções de food court)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🦐</span>
+                    <span>19h00 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p>No caminho de volta, pare em <strong>Dixie Crossroads</strong> em Titusville para camarões famosos</p>
+                    <span class="location">📍 1475 Garden St, Titusville</span>
+                    <span class="price-tag">💵 $18-30</span>
+                    <br><a href="https://dixiecrossroads.com" target="_blank" class="link">dixiecrossroads.com</a>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia14" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 15 - AGORA COMPRAS (12/04) -->
+        <div class="day-card" data-day="dia15" data-search="kissimmee celebration loop factory stores wheel icon park cafe tu tu tango columbia restaurant">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia15">
+                <div class="day-title">
+                    <h2>🛍️ Domingo, 12/04 <span class="badge badge-shopping">Compras</span></h2>
+                    <p class="day-subtitle">Compras (Kissimmee) e Vista Aérea</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛍️</span>
+                    <span>10h00 - 13h00 - The Loop Kissimmee / Celebration Factory</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 4651 Osceola Pointe Dr, Kissimmee, FL 34741</span>
+                    <p><strong>🕒 Horário:</strong> Geralmente 10h-21h</p>
+                    <p>Ambiente ao ar livre com Old Navy, Bed Bath & Beyond, e outras.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏘️</span>
+                    <span>13h30 - Almoço em Celebration</span>
+                </div>
+                <div class="activity-content">
+                    <p>Celebration: a cidade-planejada da Disney</p>
+                    <strong>Opções:</strong>
+                    <ul>
+                        <li><strong>Columbia Restaurant:</strong> Espanhol, preço médio-alto</li>
+                        <li><strong>Market Street Café:</strong> Low-cost, diner style</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎡</span>
+                    <span>15h30 - ICON Park</span>
+                </div>
+                <div class="activity-content">
+                    <span class="location">📍 8375 International Dr, Orlando</span>
+                    <p><strong>The Wheel at ICON Park</strong> (a grande roda-gigante) ou <strong>The Coca-Cola Orlando</strong> (experiência de sabores)</p>
+                    <span class="price-tag">💵 ~$30</span>
+                    <br><a href="https://iconparkorlando.com" target="_blank" class="link">iconparkorlando.com</a>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎨</span>
+                    <span>19h00 - Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Café Tu Tu Tango</strong> no ICON Park - Tapas artísticas para compartilhar
+                    <br><span class="location">📍 ICON Park</span>
+                    <span class="price-tag">💵 $9-16 cada</span>
+                    <br><a href="https://www.cafetututango.com" target="_blank" class="link">www.cafetututango.com</a>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia15" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 16 -->
+        <div class="day-card" data-day="dia16" data-search="dia livre segredos locais revisitar compras pendências">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia16">
+                <div class="day-title">
+                    <h2>✨ Segunda, 13/04 <span class="badge badge-nature">Dia Livre</span></h2>
+                    <p class="day-subtitle">Dia Livre / Segredos Locais</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🗓️</span>
+                    <span>Sugestões para o Dia</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>Revisitar um lugar que gostou</li>
+                        <li>Completar compras pendentes</li>
+                        <li>Seguir o itinerário <strong>"Segredos dos Moradores Locais"</strong> (veja a seção específica)</li>
+                        <li>Relaxar na piscina do hotel</li>
+                        <li>Explorar áreas próximas ao hotel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia16" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 17 - AGORA UNIVERSAL PARKS (14/04) -->
+        <div class="day-card" data-day="dia17" data-search="universal studios islands adventure hogwarts express park to park hagrid velocicoaster gringotts three broomsticks mythos diagon alley hogsmeade">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia17">
+                <div class="day-title">
+                    <h2>🪄 Terça, 14/04 <span class="badge badge-park">Parque</span></h2>
+                    <p class="day-subtitle">PARQUE: Universal Studios + Islands of Adventure (Park-to-Park)</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">🎫 Importante</div>
+                <p>Usar o <strong>Hogwarts Express</strong> entre os dois parques (necessário ingresso Park-to-Park). <strong>Express Pass (Fast Pass) é crucial neste dia movimentado.</strong></p>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🎢</span>
+                    <span>Estratégia do Dia</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Comece no Islands of Adventure:</strong></p>
+                    <ul>
+                        <li><strong>Hagrid's Magical Creatures Motorbike Adventure</strong> (fila virtual provável)</li>
+                        <li><strong>VelociCoaster</strong></li>
+                    </ul>
+                    <br>
+                    <p><strong>Depois, passe para o Universal Studios:</strong></p>
+                    <ul>
+                        <li><strong>Harry Potter and the Escape from Gringotts</strong></li>
+                        <li><strong>Hollywood Rip Ride Rockit</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍗</span>
+                    <span>Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Three Broomsticks</strong> (Hogsmeade) ou <strong>Leaky Cauldron</strong> (Diagon Alley) para imersão Potter</p>
+                    <span class="price-tag">💵 $15-20</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍝</span>
+                    <span>Jantar</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>Mythos Restaurant</strong> (IOA, eleito "melhor restaurante temático") ou <strong>Vivo Italian Kitchen</strong> (CityWalk)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✨</span>
+                    <span>Não Perca</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li><strong>Hogwarts Castle Night Show</strong></li>
+                        <li>Explore <strong>Diagon Alley à noite</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia17" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 18 -->
+        <div class="day-card" data-day="dia18" data-search="últimas compras ross burlington character warehouse bj cheesecake texas de brazil boma animal kingdom lodge despedida">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia18">
+                <div class="day-title">
+                    <h2>🎁 Quarta, 15/04 <span class="badge badge-shopping">Últimas Compras</span></h2>
+                    <p class="day-subtitle">Últimas Compras e Preparativos</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛍️</span>
+                    <span>10h00 - 13h00 - Lojas de Liquidação Final</span>
+                </div>
+                <div class="activity-content">
+                    <p>Escolha um <strong>Ross</strong> ou <strong>Burlington</strong> para uma última caçada por roupas, malas e lembranças.</p>
+                    <p>Ou volte a um <strong>Disney Character Warehouse</strong> para itens de última hora.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍽️</span>
+                    <span>13h30 - Almoço</span>
+                </div>
+                <div class="activity-content">
+                    <p><strong>BJ's Restaurant</strong> ou <strong>Cheesecake Factory</strong> (porções enormes, pode sobrar para o jantar)</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🧳</span>
+                    <span>15h00 - Preparativos Finais</span>
+                </div>
+                <div class="activity-content">
+                    <ul>
+                        <li>Fechamento das Malas</li>
+                        <li>Devolução de souvenirs não-perecíveis</li>
+                        <li>Abastecer o carro</li>
+                        <li>Conferir horários de voo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍖</span>
+                    <span>18h30 - Jantar de Despedida</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Opções (reserva essencial):</strong>
+                    <ul>
+                        <li><strong>Texas de Brazil (Orlando):</strong> Rodízio
+                            <br><span class="location">📍 5259 International Dr, Orlando</span>
+                            <span class="price-tag">💵 ~$55</span>
+                            <br><a href="https://texasdebrazil.com" target="_blank" class="link">texasdebrazil.com</a>
+                        </li>
+                        <li><strong>Boma - Flavors of Africa</strong> (no Animal Kingdom Lodge) - experiência gastronômica memorável</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia18" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Dia 19 -->
+        <div class="day-card" data-day="dia19" data-search="retorno partida aeroporto mco check-out despedida boardwalk">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="dia19">
+                <div class="day-title">
+                    <h2>✈️ Quinta, 16/04 <span class="badge badge-travel">Retorno</span></h2>
+                    <p class="day-subtitle">Retorno</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>☕</span>
+                    <span>Manhã - Café da Manhã e Check-out</span>
+                </div>
+                <div class="activity-content">
+                    <p>Café da manhã tranquilo, check-out do hotel.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🌅</span>
+                    <span>Tarde - Últimas Atividades</span>
+                </div>
+                <div class="activity-content">
+                    <p>Dependendo do horário do voo, pode ser um passeio no <strong>Disney's Boardwalk</strong>.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🚗</span>
+                    <span>14h00 - Partida para o Aeroporto MCO</span>
+                </div>
+                <div class="activity-content">
+                    <p>Considere <strong>1h de viagem + filas de devolução do carro e segurança</strong>.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>✈️</span>
+                    <span>16h30 - Chegada ao Aeroporto</span>
+                </div>
+                <div class="activity-content">
+                    <p>Chegada programada no MCO para o voo das <strong>19h25</strong>.</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="dia19" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+        <!-- Segredos Locais -->
+        <div class="day-card" data-day="segredos" data-search="segredos locais aldi lidl micro center five below goodwill bealls outlet publix winn dixie el inka grill peruvian">
+            <div class="day-header">
+                <input type="checkbox" class="day-checkbox" data-day="segredos">
+                <div class="day-title">
+                    <h2>🤫 SEGREDOS DOS MORADORES LOCAIS</h2>
+                    <p class="day-subtitle">Onde os verdadeiros orlandanos economizam</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-title">💡 Sobre Esta Seção</div>
+                <p>Estes são lugares menos glamourosos que os outlets, mas onde os verdadeiros orlandanos economizam de verdade!</p>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🛒</span>
+                    <span>1. Liquidações de Alimentos</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Aldi:</strong> Rede de supermercados de desconto extremo
+                    <br><span class="location">📍 Ex: 8588 W Irlo Bronson Mem Hwy, Kissimmee</span>
+                    <br><a href="https://aldi.us" target="_blank" class="link">aldi.us</a>
+                    <p>Produtos próprios de qualidade, preços imbatíveis em básicos. Leve uma moeda de 25¢ para o carrinho e suas próprias sacolas.</p>
+                    <br>
+                    <strong>Lidl:</strong> Concorrente direto do Aldi
+                    <br><span class="location">📍 Ex: 2894 S Osceola Ave, Orlando</span>
+                    <br><a href="https://lidl.com" target="_blank" class="link">lidl.com</a>
+                    <p>Ofertas semanais incríveis em queijos, vinhos, pães e produtos frescos.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>💻</span>
+                    <span>2. Compras de Eletrônicos & Variedades</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Micro Center:</strong> Paraíso do nerd
+                    <br><span class="location">📍 1201 S Orange Blossom Trl, Orlando</span>
+                    <br><a href="https://microcenter.com" target="_blank" class="link">microcenter.com</a>
+                    <p>Preços em componentes, cabos, acessórios de PC/celular muitas vezes melhores que Amazon.</p>
+                    <br>
+                    <strong>Five Below:</strong> TUDO por $5 ou menos
+                    <br><span class="location">📍 Ex: 4778 S Kirkman Rd, Orlando</span>
+                    <br><a href="https://fivebelow.com" target="_blank" class="link">fivebelow.com</a>
+                    <p>Brinquedos, snacks, itens de decoração, bijuterias, material básico de festa. Ótimo para souvenirs de baixo custo.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>👔</span>
+                    <span>3. Compras de Roupas e Casa - Nível Profissional</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Goodwill Boutique ou Out of the Closet:</strong> Caça ao tesouro
+                    <br><span class="location">📍 Goodwill Boutique: 1055 S Orlando Ave, Winter Park</span>
+                    <p>As "boutiques" da Goodwill em áreas nobres costumam receber doações de marcas de luxo. Pode encontrar roupas de grife por $10.</p>
+                    <br>
+                    <strong>Bealls Outlet:</strong> Rede da Flórida
+                    <br><span class="location">📍 Ex: 4562 S Kirkman Rd, Orlando</span>
+                    <br><a href="https://beallsoutlet.com" target="_blank" class="link">beallsoutlet.com</a>
+                    <p>Descontos agressivos em roupas, sapatos e itens domésticos, especialmente após feriados.</p>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🍗</span>
+                    <span>4. Refeições Low-Cost de Verdade</span>
+                </div>
+                <div class="activity-content">
+                    <strong>Supermercados com "Hot Bar":</strong>
+                    <p>O <strong>Publix</strong> tem ofertas no frango assado e nos "subs" (sanduíches), mas a "Hot Bar" do <strong>Winn-Dixie</strong> ou do <strong>Fresh Market</strong> (às terças-feiras, promoção do frango frito) pode ser mais barata.</p>
+                    <br>
+                    <strong>Restaurantes de Culinária Latino-Caribenha:</strong>
+                    <p>Em Kissimmee/Orlando, procure por "Peruvian Chicken" ou "Comida Latina".</p>
+                    <strong>El Inka Grill Ceviche:</strong> Prato gigante de frango, arroz, feijão, banana frita
+                    <br><span class="location">📍 7848 W Irlo Bronson Mem Hwy, Kissimmee</span>
+                    <span class="price-tag">💵 Prato executivo no almoço: ~$9</span>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="activity-header">
+                    <span>🏬</span>
+                    <span>5. Lojas e Shoppings Clássicos de Orlando</span>
+                </div>
+                <div class="activity-content">
+                    <p>Esses são os lugares "obrigatórios" para quem quer fazer enxoval de compras em Orlando: outlets, lojas de ponta de estoque e grandes shoppings.</p>
+                    <br>
+
+                    <strong>Walmart:</strong> Supercenters 24h ou quase isso, para tudo: comida, eletrônicos, brinquedos, roupas e farmácia.
+                    <br><a href="https://www.walmart.com" target="_blank" class="link">walmart.com</a>
+                    <p>Dica: ótimo lugar para comprar snacks, bebidas, remédios básicos e itens de café da manhã para economizar no hotel.</p>
+                    <br>
+
+                    <strong>Orlando Vineland Premium Outlets:</strong> O outlet "queridinho" perto da Disney, com muitas marcas de luxo em versão outlet.
+                    <br><a href="https://www.premiumoutlets.com/outlet/orlando-vineland" target="_blank" class="link">premiumoutlets.com/outlet/orlando-vineland</a>
+                    <p>Tem uma unidade do Disney Store Outlet (Character Warehouse), excelente para souvenirs oficiais com desconto.</p>
+                    <br>
+
+                    <strong>Orlando International Premium Outlets:</strong> O outlet da International Drive, gigante e com muita variedade.
+                    <br><a href="https://www.premiumoutlets.com/outlet/orlando-international" target="_blank" class="link">premiumoutlets.com/outlet/orlando-international</a>
+                    <p>Melhor combinação com um dia na I‑Drive (Universal Boulevard, restaurantes e lojinhas de variedades).</p>
+                    <br>
+
+                    <strong>Ross Dress for Less:</strong> Roupas, calçados e casa com preços de ponta de estoque.
+                    <br><a href="https://www.rossstores.com" target="_blank" class="link">rossstores.com</a>
+                    <p>Chegue cedo (logo na abertura) para pegar a loja mais organizada e as melhores peças.</p>
+                    <br>
+
+                    <strong>Burlington:</strong> Antiga Burlington Coat Factory, hoje vende de tudo: roupas, malas, itens de casa.
+                    <br><a href="https://www.burlington.com" target="_blank" class="link">burlington.com</a>
+                    <p>Boa opção para comprar jaquetas, malas e itens de cama/banho com bons descontos.</p>
+                    <br>
+
+                    <strong>Marshalls:</strong> Prima da TJ Maxx, com foco em roupas, calçados e decoração.
+                    <br><a href="https://www.marshalls.com" target="_blank" class="link">marshalls.com</a>
+                    <p>Ótimo para achar roupas de marca e itens de casa bonitos por preços bem abaixo de shopping tradicional.</p>
+                    <br>
+
+                    <strong>T.J.Maxx:</strong> Outra gigante de "off-price", em geral no mesmo nível de preço da Marshalls.
+                    <br><a href="https://tjmaxx.tjx.com/store/index.jsp" target="_blank" class="link">tjmaxx.tjx.com</a>
+                    <p>Foque em bolsas, carteiras, óculos, perfumes e roupas de marca com grande desconto.</p>
+                    <br>
+
+                    <strong>Dollar Tree:</strong> Tudo por US$ 1,25 (ou bem perto disso).
+                    <br><a href="https://www.dollartree.com" target="_blank" class="link">dollartree.com</a>
+                    <p>Perfeito para comprar itens de festa, embalagens, pequenos brinquedos e lembrancinhas baratas.</p>
+                    <br>
+
+                    <strong>The Florida Mall:</strong> Shopping fechado tradicional, com muitas âncoras (Macy's, etc.) e várias lojas desejadas.
+                    <br><a href="https://www.simon.com/mall/the-florida-mall" target="_blank" class="link">simon.com/mall/the-florida-mall</a>
+                    <p>É aqui que fica a famosa <strong>Primark</strong> de Orlando, ótima para roupas baratas e coleções temáticas.</p>
+                    <br>
+
+                    <strong>Primark:</strong> Fast fashion europeu com preços muito baixos, dentro do Florida Mall.
+                    <br><a href="https://www.primark.com" target="_blank" class="link">primark.com</a>
+                    <p>Ótima para pijamas, meias, camisetas temáticas e itens de moda rápida.</p>
+                    <br>
+
+                    <strong>Disney Springs:</strong> Centro de entretenimento e compras da Disney, com muitas lojas temáticas e restaurantes.
+                    <br><a href="https://disneyworld.disney.go.com/destinations/disney-springs/" target="_blank" class="link">disneyworld.disney.go.com/destinations/disney-springs</a>
+                    <p>Entrada e estacionamento gratuitos; excelente para um fim de tarde/noite sem parque.</p>
+                    <br>
+
+                    <strong>Restaurantes clássicos para combinar com compras:</strong>
+                    <br>
+                    • The Cheesecake Factory – <a href="https://www.thecheesecakefactory.com" target="_blank" class="link">thecheesecakefactory.com</a><br>
+                    • Olive Garden – <a href="https://www.olivegarden.com" target="_blank" class="link">olivegarden.com</a><br>
+                    • Miller's Ale House – <a href="https://www.millersalehouse.com" target="_blank" class="link">millersalehouse.com</a><br>
+                    • Red Lobster – <a href="https://www.redlobster.com" target="_blank" class="link">redlobster.com</a>
+                    <p>Esses quatro têm diversas unidades na região de Orlando, perfeitos para encaixar depois de dia de compras em outlet ou shopping.</p>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h4>📝 Minhas Notas Pessoais</h4>
+                <textarea class="notes-textarea" data-day="segredos" placeholder="Adicione suas anotações aqui..."></textarea>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressText">0 de 20 dias completos</div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div class="modal" id="calcModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>💰 Calculadora de Orçamento</h3>
+                <button class="close-btn" id="closeCalc">&times;</button>
+            </div>
+
+            <div class="calculator-item">
+                <input type="number" id="calc-flights" placeholder="Voos" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-hotel" placeholder="Hospedagem (total)" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-car" placeholder="Aluguel de carro" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-tickets" placeholder="Ingressos parques" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-food" placeholder="Alimentação (estimativa)" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-shopping" placeholder="Compras" value="0">
+            </div>
+            <div class="calculator-item">
+                <input type="number" id="calc-other" placeholder="Outros gastos" value="0">
+            </div>
+
+            <div class="calculator-total" id="calcTotal">Total: $0</div>
+
+            <button class="btn-primary" id="saveCalc">💾 Salvar</button>
+        </div>
+    </div>
+
+    <script>
+        // State Management
+        const state = {
+            currentDay: 'preparativos',
+            theme: 'light',
+            notes: {},
+            checklist: {},
+            calculator: {
+                flights: 0,
+                hotel: 0,
+                car: 0,
+                tickets: 0,
+                food: 0,
+                shopping: 0,
+                other: 0
+            }
+        };
+
+        // Load from localStorage
+        function loadState() {
+            const saved = localStorage.getItem('disneyRoteiro');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                Object.assign(state, parsed);
+                applyState();
+            }
+        }
+
+        // Save to localStorage
+        function saveState() {
+            localStorage.setItem('disneyRoteiro', JSON.stringify(state));
+        }
+
+        // Apply state to UI
+        function applyState() {
+            // Theme
+            document.body.setAttribute('data-theme', state.theme);
+            document.getElementById('themeBtn').textContent = state.theme === 'dark' ? '☀️' : '🌙';
+
+            // Checklist
+Object.keys(state.checklist).forEach(day => {
+    const checkbox = document.querySelector(`.day-checkbox[data-day="${day}"]`);
+    if (checkbox) checkbox.checked = state.checklist[day];
+});
+
+            // Notes
+            Object.keys(state.notes).forEach(day => {
+                const textarea = document.querySelector(`.notes-textarea[data-day="${day}"]`);
+                if (textarea) textarea.value = state.notes[day];
+            });
+
+            // Calculator
+            Object.keys(state.calculator).forEach(key => {
+                const input = document.getElementById(`calc-${key}`);
+                if (input) input.value = state.calculator[key];
+            });
+            updateCalcTotal();
+
+            // Progress
+            updateProgress();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            applyState();
+            setupEventListeners();
+        });
+
+        
+        // Event Listeners
+        function setupEventListeners() {
+            // Menu toggle
+            document.getElementById('menuBtn').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('active');
+                document.getElementById('sidebarOverlay').classList.toggle('active');
+            });
+
+            document.getElementById('sidebarOverlay').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.remove('active');
+                document.getElementById('sidebarOverlay').classList.remove('active');
+            });
+
+            // Search toggle
+            document.getElementById('searchBtn').addEventListener('click', () => {
+                const searchContainer = document.getElementById('searchContainer');
+                const isVisible = searchContainer.style.display !== 'none';
+                searchContainer.style.display = isVisible ? 'none' : 'block';
+                if (!isVisible) {
+                    document.getElementById('searchInput').focus();
+                }
+            });
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.day-card');
+                
+                if (query === '') {
+                    // Reset to current day
+                    switchDay(state.currentDay);
+                    return;
+                }
+
+                cards.forEach(card => {
+                    const searchText = card.getAttribute('data-search') || '';
+                    const matches = searchText.toLowerCase().includes(query);
+                    card.style.display = matches ? 'block' : 'none';
+                    if (matches) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            });
+
+            // Theme toggle
+            document.getElementById('themeBtn').addEventListener('click', () => {
+                state.theme = state.theme === 'light' ? 'dark' : 'light';
+                applyState();
+                saveState();
+            });
+
+            // Calculator
+            document.getElementById('calcBtn').addEventListener('click', () => {
+                document.getElementById('calcModal').classList.add('active');
+            });
+
+            document.getElementById('closeCalc').addEventListener('click', () => {
+                document.getElementById('calcModal').classList.remove('active');
+            });
+
+            document.getElementById('saveCalc').addEventListener('click', () => {
+                ['flights', 'hotel', 'car', 'tickets', 'food', 'shopping', 'other'].forEach(key => {
+                    state.calculator[key] = parseFloat(document.getElementById(`calc-${key}`).value) || 0;
+                });
+                updateCalcTotal();
+                saveState();
+                document.getElementById('calcModal').classList.remove('active');
+            });
+
+            // Calculator inputs real-time update
+            ['flights', 'hotel', 'car', 'tickets', 'food', 'shopping', 'other'].forEach(key => {
+                document.getElementById(`calc-${key}`).addEventListener('input', updateCalcTotal);
+            });
+
+            // Navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const day = item.getAttribute('data-day');
+                    switchDay(day);
+                    document.getElementById('sidebar').classList.remove('active');
+                    document.getElementById('sidebarOverlay').classList.remove('active');
+                });
+            });
+
+            // Tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const day = tab.getAttribute('data-day');
+                    switchDay(day);
+                });
+            });
+
+            // Checkboxes
+            document.querySelectorAll('.day-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', (e) => {
+                    const day = e.target.getAttribute('data-day');
+                    state.checklist[day] = e.target.checked;
+                    saveState();
+                    updateProgress();
+                });
+            });
+
+            // Notes
+            document.querySelectorAll('.notes-textarea').forEach(textarea => {
+                textarea.addEventListener('blur', (e) => {
+                    const day = e.target.getAttribute('data-day');
+                    state.notes[day] = e.target.value;
+                    saveState();
+                });
+            });
+        }
+
+        // Switch day
+        function switchDay(day) {
+            state.currentDay = day;
+
+            // Update cards
+            document.querySelectorAll('.day-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.querySelector(`.day-card[data-day="${day}"]`).classList.add('active');
+
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            const activeTab = document.querySelector(`.tab[data-day="${day}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            // Update nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector(`.nav-item[data-day="${day}"]`).classList.add('active');
+
+            saveState();
+        }
+
+        // Update calculator total
+        function updateCalcTotal() {
+            const total = ['flights', 'hotel', 'car', 'tickets', 'food', 'shopping', 'other'].reduce((sum, key) => {
+                return sum + (parseFloat(document.getElementById(`calc-${key}`).value) || 0);
+            }, 0);
+            document.getElementById('calcTotal').textContent = `Total: $${total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        // Update progress
+        function updateProgress() {
+            const total = 20; // 19 dias + preparativos
+            const completed = Object.values(state.checklist).filter(v => v).length;
+            const percentage = (completed / total) * 100;
+
+            document.getElementById('progressFill').style.width = `${percentage}%`;
+            document.getElementById('progressText').textContent = `${completed} de ${total} dias completos (${Math.round(percentage)}%)`;
+        }
+    </script>
+</body>
+</html>
